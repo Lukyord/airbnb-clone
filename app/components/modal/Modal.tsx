@@ -83,7 +83,8 @@ export default function Modal({
             md:w-4/6
             lg:w-3/6
             xl:w-2/5
-            my-6
+            md:mt-14
+            md:my-6
             mx-auto
             h-full
             md:h-auto
@@ -172,6 +173,7 @@ export default function Modal({
                     onClick={handleSubmit}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>
