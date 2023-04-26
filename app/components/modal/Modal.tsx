@@ -35,8 +35,6 @@ export default function Modal({
     setShowModal(isOpen);
   }, [isOpen]);
 
-  // Handle Close
-  //=============================================
   const handleClose = useCallback(() => {
     if (disabled) return;
 
@@ -45,25 +43,18 @@ export default function Modal({
       onClose();
     }, 300);
   }, [disabled, onClose]);
-  //=============================================
 
-  // Handle Submit
-  //=============================================
   const handleSubmit = useCallback(() => {
     if (disabled) return;
 
     onSubmit();
   }, [disabled, onSubmit]);
-  //=============================================
 
-  // Handle Secondary Action
-  //=============================================
   const handleSecondaryAction = useCallback(() => {
     if (disabled || !secondaryAction) return;
 
     secondaryAction();
   }, [disabled, secondaryAction]);
-  //=============================================
 
   //Check is Open
   if (!isOpen) return null;
