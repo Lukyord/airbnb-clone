@@ -31,7 +31,11 @@ export default function ImageUpload({ onChange, value }: ImageUplaodProps) {
       {({ open }) => {
         return (
           <div
-            onClick={() => open?.()}
+            onClick={() => {
+              setTimeout(() => {
+                open();
+              }, 1000);
+            }}
             className="
             relative
             cursor-pointer
