@@ -1,13 +1,10 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import getListings from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home() {
   const listings = await getListings();
