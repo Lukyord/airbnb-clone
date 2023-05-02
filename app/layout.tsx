@@ -8,7 +8,7 @@ import LoginModal from "./components/modal/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modal/RentModal";
 
-const font = Nunito({ subsets: ["latin"] });
+const font = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
 export const metadata = {
   title: "Airbnb",
@@ -24,7 +24,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.variable} font-nunito`}>
         <ClientOnly>
           <ToasterProvider />
           <RegisterModal />
