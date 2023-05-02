@@ -4,13 +4,12 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Reservation } from "@prisma/client";
 import { differenceInCalendarDays, eachDayOfInterval, setDate } from "date-fns";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
 import Container from "@/app/components/Container";
 import { categories } from "@/app/components/navbar/Categories";
-import { SafeListings, SafeUser } from "@/app/types";
+import { SafeListings, SafeReservation, SafeUser } from "@/app/types";
 import ListingHead from "../../../components/listings/ListingHead";
 import ListingInfo from "../../../components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
@@ -23,7 +22,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListings & {
     user: SafeUser;
   };
@@ -82,6 +81,7 @@ export default function ListingClient({
       })
       .finally(() => {
         setIsLoading(false);
+        router.refresh();
       });
   }, [totalPrice, dateRange, listing?.id, router, currentUser, loginModal]);
 
